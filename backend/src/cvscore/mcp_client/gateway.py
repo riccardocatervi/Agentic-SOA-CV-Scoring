@@ -97,6 +97,8 @@ class Gateway:
 class ToolBox:
     """The tools one agent may use (least privilege). The allowlist lives in the registry."""
 
+    done = False  # part of the loop's Tools protocol: MCP tools never end the loop by themselves
+
     def __init__(self, gateway: Gateway, allowed: Collection[str]):
         self._gateway = gateway
         self.allowed = frozenset(allowed)
