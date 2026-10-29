@@ -10,7 +10,7 @@ import time
 import uuid
 from pathlib import Path
 
-from cvscore.config import get_settings
+from cvscore.config import get_service_settings
 
 ALLOWED_EXTENSIONS = {".pdf", ".docx"}
 MAX_UPLOAD_BYTES = 5 * 1024 * 1024
@@ -24,7 +24,7 @@ class StorageError(Exception):
 
 
 def _cv_root(storage_dir: Path | None) -> Path:
-    return (storage_dir or get_settings().storage_dir) / "cv"
+    return (storage_dir or get_service_settings().storage_dir) / "cv"
 
 
 def _cv_folder(cv_id: str, storage_dir: Path | None) -> Path:

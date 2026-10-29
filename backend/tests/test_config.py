@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from cvscore.config import Settings
+from cvscore.config import ServiceSettings, Settings
 
 
 @pytest.fixture
@@ -43,3 +43,12 @@ def test_required_variable_missing_fails(monkeypatch, required_env, missing):
 
     with pytest.raises(ValidationError):
         Settings(_env_file=None)
+
+
+def test_service_settings_do_not_need_llm_variables(monkeypatch):
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    monkeypatch.delenv("LLM_MODEL", raising=False)
+
+    settings = ServiceSettings(_env_file=None)
+
+    assert settings.mcp_gateway_url.endswith("/mcp")
