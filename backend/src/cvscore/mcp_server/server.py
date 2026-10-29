@@ -106,6 +106,4 @@ async def compute_score(
     matches: Annotated[list[VerifiedMatch], Field(max_length=50)],
 ) -> ScoreResult:
     """Compute the 0-100 score from the requirements and the verified matches."""
-    return await _call(
-        "compute_score", None, scoring_service.compute_score, requirements, matches
-    )
+    return await _call("compute_score", None, scoring_service.compute_score, requirements, matches)

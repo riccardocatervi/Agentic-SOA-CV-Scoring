@@ -3,7 +3,9 @@ import pytest
 from cvscore.mcp_server.services.scoring_service import compute_score
 from cvscore.schemas import Requirement, VerifiedMatch
 
-pytestmark = pytest.mark.skip(reason="TODO(services owner): implement the services, then delete this line")
+pytestmark = pytest.mark.skip(
+    reason="TODO(services owner): implement the services, then delete this line"
+)
 
 
 def req(id, kind="must"):

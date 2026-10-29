@@ -4,7 +4,9 @@ from helpers import SAMPLE_CV, make_docx, make_pdf
 from cvscore.mcp_server.services import verify_service
 from cvscore.storage import StorageError
 
-pytestmark = pytest.mark.skip(reason="TODO(services owner): implement the services, then delete this line")
+pytestmark = pytest.mark.skip(
+    reason="TODO(services owner): implement the services, then delete this line"
+)
 
 
 @pytest.fixture
@@ -25,7 +27,9 @@ def test_case_and_spacing_do_not_matter(cv_id):
 
 
 def test_quote_split_across_lines_is_found(store_cv):
-    cv_id = store_cv(make_docx(["Jane", "Led a team of five engi-", "neers on a data platform."]), "c.docx")
+    cv_id = store_cv(
+        make_docx(["Jane", "Led a team of five engi-", "neers on a data platform."]), "c.docx"
+    )
 
     result = verify_service.verify_evidence(cv_id, "team of five engineers")
 
