@@ -57,6 +57,25 @@ async def test_plain_text_message_has_no_tool_calls_key():
     assert "tool_calls" not in message
 
 
+@pytest.mark.parametrize(
+    "wrapped",
+    [
+        '```json\n{"value": 3}\n```',
+        '```\n{"value": 3}\n```',
+        'Sure! Here is the result:\n{"value": 3}\nHope it helps.',
+        '  {"value": 3}  ',
+    ],
+)
+def test_parse_peels_code_fences_and_surrounding_prose(wrapped):
+    assert text(wrapped).parse(Answer) == Answer(value=3)
+
+
+def test_usage_can_be_summed():
+    from cvscore.llm import Usage
+
+    assert Usage(10, 2) + Usage(5, 1) == Usage(15, 3)
+
+
 async def test_parse_validates_against_the_schema():
     assert structured(Answer(value=3)).parse(Answer) == Answer(value=3)
 
