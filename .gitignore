@@ -225,3 +225,7 @@ CLAUDE.md
 
 # Uploaded CVs are personal data: never commit them
 data/
+
+# Personal notes, never committed
+docs/learning-log.md
+
