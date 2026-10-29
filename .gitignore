@@ -219,6 +219,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Markdown 
+# Markdown
 HANDOFF.md
 CLAUDE.md
+
+# Uploaded CVs are personal data: never commit them
+data/
