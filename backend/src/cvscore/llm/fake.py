@@ -49,9 +49,7 @@ class FakeLLMClient:
         response_schema: type[BaseModel] | None = None,
         max_tokens: int = 512,
     ) -> LLMResponse:
-        self.calls.append(
-            ChatCall(copy.deepcopy(messages), tools, response_schema, max_tokens)
-        )
+        self.calls.append(ChatCall(copy.deepcopy(messages), tools, response_schema, max_tokens))
         if not self._script:
             raise AssertionError("FakeLLMClient: script exhausted, unexpected extra call")
         item = self._script.popleft()

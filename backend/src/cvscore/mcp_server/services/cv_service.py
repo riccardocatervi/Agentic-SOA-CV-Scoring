@@ -37,9 +37,7 @@ def get_section(cv_id: str, name: str, max_chars: int = 4000) -> CvSection:
     raise NotImplementedError
 
 
-def search_cv(
-    cv_id: str, query: str, max_hits: int = 5, context_chars: int = 200
-) -> SearchResult:
+def search_cv(cv_id: str, query: str, max_hits: int = 5, context_chars: int = 200) -> SearchResult:
     """Find where the CV mentions the query.
 
     Case-insensitive. Each hit is a snippet of about context_chars around the match,
