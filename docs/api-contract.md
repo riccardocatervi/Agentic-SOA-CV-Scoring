@@ -1,0 +1,1 @@
+Cosa si aspetta il frontend
