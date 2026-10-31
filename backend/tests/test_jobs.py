@@ -11,9 +11,6 @@ from cvscore.schemas import AnalysisResult, ScoreResult
 CV_ID = "a" * 32
 
 
-pytestmark = pytest.mark.skip(reason="job queue is not implemented yet")
-
-
 def result(score=50) -> AnalysisResult:
     breakdown = ScoreResult(
         score=score, must_met=0, must_total=0, nice_met=0, nice_total=0, per_requirement=[]
